@@ -1,0 +1,24 @@
+{
+  "login": {
+    "validCredentials": {
+      "email": "test@postbackdaddy.com",
+      "password": "Test@123"
+    },
+    "invalidCredentials": {
+      "email": "invalid@postbackdaddy.com",
+      "password": "InvalidPass@123"
+    }
+  },
+  "forgetPassword": {
+    "validEmail": "test@postbackdaddy.com",
+    "invalidEmail": "nonexistent@postbackdaddy.com",
+    "expiredToken": "expired-token-xyz"
+  },
+  "resetPassword": {
+    "validToken": "valid-reset-token-123",
+    "expiredToken": "expired-reset-token-456",
+    "newPassword": "NewPassword@123",
+    "invalidPassword": "weak"
+  }
+}
+
