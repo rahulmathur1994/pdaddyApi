@@ -14,14 +14,12 @@
                     <include name="testSuccessfulLogin"/>
                 </methods>
             </class>
-
             <!-- STEP 2: Profile fetch (reuses token) -->
             <class name="com.postbackdaddy.tests.auth.ProfileFetchTest">
                 <methods>
                     <include name="testFetchProfile"/>
                 </methods>
             </class>
-
             <!-- STEP 3: Remaining login validations -->
             <class name="com.postbackdaddy.tests.auth.LoginTests">
                 <methods>
@@ -33,10 +31,18 @@
             </class>
         </classes>
     </test>
-
+    <!-- TENANT FLOW (Depends on auth token from login) -->
+    <test name="Tenant Management Flow">
+        <classes>
+            <class name="com.postbackdaddy.tests.auth.TenantCreateTests">
+                <methods>
+                    <include name="testSuccessfulTenantCreation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
     <!-- LOGOUT FLOW (Independent execution) -->
     <test name="Logout Flow">
-
         <classes>
             <class name="com.postbackdaddy.tests.auth.LogoutTests">
                 <methods>
@@ -46,11 +52,9 @@
             </class>
         </classes>
     </test>
-
     <test name="Suite Cleanup">
         <classes>
             <class name="com.postbackdaddy.tests.base.SuiteCleanup"/>
         </classes>
     </test>
-
 </suite>
