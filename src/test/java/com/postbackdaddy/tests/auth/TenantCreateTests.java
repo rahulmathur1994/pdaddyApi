@@ -101,8 +101,6 @@ public class TenantCreateTests extends BaseTest {
         }
     }
 
-
-
     @Test(groups = "tenant")
     public void testTenantCreationWithDuplicateEmail() {
         extentTest.info("Testing tenant creation with duplicate email");
