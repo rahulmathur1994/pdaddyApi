@@ -21,5 +21,8 @@ public class Endpoints {
     public static final String DELETE_USER_ACCOUNT = "/api/v1/users/account";
     public static final String PROFILE = "/v1/profile";
 
+    // Tenant Endpoints
+    public static final String GET_TENANTS = "/v1/tenants";  // Supports ?page=X&limit=Y
+
     // Additional Endpoints can be added here
 }
