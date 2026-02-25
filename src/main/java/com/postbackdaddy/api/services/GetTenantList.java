@@ -196,6 +196,14 @@ public class GetTenantList {
     }
 
     /**
+     * Get the second tenant ID from cache
+     *
+     * @return Second tenant ID or null if not available
+     */
+    public static String getSecondTenantId() {
+        return tenantIds.size() > 1 ? tenantIds.get(1) : null;
+    }
+    /**
      * Get tenant ID by index
      *
      * @param index Index in cached list
@@ -204,6 +212,8 @@ public class GetTenantList {
     public static String getTenantIdByIndex(int index) {
         return (index >= 0 && index < tenantIds.size()) ? tenantIds.get(index) : null;
     }
+
+
 
     /**
      * Clear all cached tenant data
@@ -235,4 +245,3 @@ public class GetTenantList {
         System.out.println("=".repeat(60) + "\n");
     }
 }
-

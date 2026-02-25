@@ -24,5 +24,7 @@ public class Endpoints {
     // Tenant Endpoints
     public static final String GET_TENANTS = "/v1/tenants";  // Supports ?page=X&limit=Y
 
-    // Additional Endpoints can be added here
+    // Tenant User Create
+    public static final String CREATE_TENANT_USER =
+            "/v1/tenants/%s/user";
 }

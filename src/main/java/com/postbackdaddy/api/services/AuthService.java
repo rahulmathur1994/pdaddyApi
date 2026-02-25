@@ -204,5 +204,4 @@ public class AuthService {
         TokenManager.clearTokens();
         logger.info("All tokens cleared manually");
     }
-
 }
