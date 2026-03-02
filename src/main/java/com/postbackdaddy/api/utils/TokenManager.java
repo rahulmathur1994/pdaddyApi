@@ -19,6 +19,7 @@ public class TokenManager {
      * @param token Authentication token
      */
     public static void setAuthToken(String token) {
+
         authToken = token;
     }
 
@@ -27,6 +28,7 @@ public class TokenManager {
      * @return Authentication token
      */
     public static String getAuthToken() {
+
         return authToken;
     }
 
@@ -35,6 +37,7 @@ public class TokenManager {
      * @param token Refresh token
      */
     public static void setRefreshToken(String token) {
+
         refreshToken = token;
     }
 
@@ -43,6 +46,7 @@ public class TokenManager {
      * @return Refresh token
      */
     public static String getRefreshToken() {
+
         return refreshToken;
     }
 
@@ -59,6 +63,7 @@ public class TokenManager {
      * @return Tenant ID
      */
     public static String getTenantId() {
+
         return tenantId;
     }
 
@@ -76,6 +81,7 @@ public class TokenManager {
      * @return true if token exists, false otherwise
      */
     public static boolean hasAuthToken() {
+
         return authToken != null && !authToken.isEmpty();
     }
 
@@ -84,6 +90,7 @@ public class TokenManager {
      * @return true if refresh token exists, false otherwise
      */
     public static boolean hasRefreshToken() {
+
         return refreshToken != null && !refreshToken.isEmpty();
     }
 

@@ -59,8 +59,14 @@
                 </methods>
             </class>
 
+            <!-- STEP 3: Fetch connectionConfig -->
+            <class name="com.postbackdaddy.tests.auth.ConnectionConfigFetchTest">
+                <methods>
+                    <include name="testFetchTargetConnectionConfig"/>
+                    <include name="testFetchSourceConfig"/>
+                </methods>
+            </class>
         </classes>
-
     </test>
 
 
