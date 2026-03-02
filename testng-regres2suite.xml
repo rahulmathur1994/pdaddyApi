@@ -66,6 +66,13 @@
                     <include name="testFetchSourceConfig"/>
                 </methods>
             </class>
+
+            <!-- STEP 3: Create Connection target -->
+            <class name="com.postbackdaddy.tests.auth.ConnectionCreateTest">
+                <methods>
+                    <include name="testCreateTargetConnection"/>
+                </methods>
+            </class>
         </classes>
     </test>
 
