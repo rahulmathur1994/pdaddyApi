@@ -40,7 +40,6 @@ public class GetTenantList {
 
     /**
      * Fetch tenants list with pagination
-     *
      * @param page   Page number (default: 1)
      * @param limit  Records per page (default: 10)
      * @return GetTenantsResponse with tenant list
@@ -243,5 +242,37 @@ public class GetTenantList {
         }
 
         System.out.println("=".repeat(60) + "\n");
+    }
+
+    /**
+     * Fetch tenant ID using index position from cached tenants
+     *
+     * Example:
+     * index = 0 → first tenant
+     * index = 1 → second tenant
+     *
+     * @param index tenant position
+     * @return tenantId
+     */
+    public static String fetchTenantId(int index) {
+
+        if (tenantIds.isEmpty()) {
+            throw new IllegalStateException(
+                    "Tenant cache is empty. Ensure GetTenantsListTest runs before using tenant IDs."
+            );
+        }
+
+        if (index < 0 || index >= tenantIds.size()) {
+            throw new IndexOutOfBoundsException(
+                    "Invalid tenant index: " + index +
+                            ". Available tenants count: " + tenantIds.size()
+            );
+        }
+
+        String tenantId = tenantIds.get(index);
+
+        logger.info("Fetched tenantId from cache using index {} -> {}", index, tenantId);
+
+        return tenantId;
     }
 }

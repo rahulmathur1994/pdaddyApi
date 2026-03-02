@@ -28,7 +28,8 @@ public class TenantUserCreateTest extends BaseTest {
         extentTest.info("=== Tenant User Creation Started ===");
 
         // ✅ Fetch cached tenantId dynamically
-        String tenantId = GetTenantList.getSecondTenantId();
+        //String tenantId = GetTenantList.getSecondTenantId();
+        String tenantId = GetTenantList.fetchTenantId(1);
 
         if (tenantId == null) {
             extentTest.warning("Tenant ID not available.");

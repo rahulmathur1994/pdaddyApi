@@ -39,10 +39,10 @@ public class TenantCreateTests extends BaseTest {
 
         // ===== Create Request =====
         CreateTenantRequest tenantRequest = new CreateTenantRequest();
-        tenantRequest.setName("Tanent LLC");
-        tenantRequest.setEmail("test14+ccc@codeclouds.in");
+        tenantRequest.setName("Org Dev");
+        tenantRequest.setEmail("test15+ccc@codeclouds.in");
         tenantRequest.setCountry_code("+1");
-        tenantRequest.setPhone_number("7894561236");
+        tenantRequest.setPhone_number("7884561236");
         tenantRequest.setStatus("ACTIVE");
 
         extentTest.info("Creating tenant: " + tenantRequest.getName());
