@@ -44,7 +44,7 @@ public class TenantUserCreateTest extends BaseTest {
 
         // unique email every run
         String email =
-                "tenantuser" + System.currentTimeMillis()
+                "orguser" + System.currentTimeMillis()
                         + "@codeclouds.in";
 
         request.setEmail(email);

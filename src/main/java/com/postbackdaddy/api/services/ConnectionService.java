@@ -81,9 +81,17 @@ public class ConnectionService {
     }
 
 
-    public Response createSourceConnection(String tenantId) {
-
+    public static Response createSourceConnection(String tenantId) {
+        String token = TokenManager.getAuthToken();
         String sourceId = ConnectionConfigStore.getSourceId();
+
+        if (tenantId == null)
+            throw new IllegalStateException("TenantId not available");
+
+        if (sourceId == null)
+            throw new IllegalStateException("Source ConfigId not available");
+
+        logger.info("Creating SOURCE connection for tenant: {}", tenantId);
 
         Map<String, Object> credentials = new HashMap<>();
         credentials.put("api_key", "12345678");
@@ -95,12 +103,16 @@ public class ConnectionService {
 
         Response response = given()
                 .spec(BaseSpecBuilder.getRequestSpec(ConfigReader.getBaseURI()))
+                .header("Authorization", "Bearer " + token)
                 .body(body)
                 .when()
                 .post("/v1/tenants/" + tenantId + "/connections")
                 .then()
                 .extract()
                 .response();
+
+        logger.info("Create SOURCE Status: {}", response.getStatusCode());
+        logger.debug("Response: {}", response.asPrettyString());
 
         if (response.getStatusCode() == 201 &&
                 response.jsonPath().getBoolean("status")) {

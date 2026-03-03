@@ -48,10 +48,7 @@ public class ConnectionCreateTest extends BaseTest {
     public void createSourceConnectionTest() {
 
         String tenantId = GetTenantList.getFirstTenantId();
-
-        ConnectionService service = new ConnectionService();
-        Response response = service.createSourceConnection(tenantId);
-
-       // Assert.assertEquals(response.getStatusCode(), 201);
+        Response response = ConnectionService.createSourceConnection(tenantId);
+        Assert.assertEquals(response.getStatusCode(), 201);
     }
 }

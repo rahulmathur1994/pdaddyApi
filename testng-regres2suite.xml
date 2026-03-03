@@ -93,8 +93,6 @@
         </classes>
 
     </test>
-
-
     <!-- ===================================================== -->
     <!-- SUITE CLEANUP -->
     <!-- ===================================================== -->
@@ -103,7 +101,5 @@
         <classes>
             <class name="com.postbackdaddy.tests.base.SuiteCleanup"/>
         </classes>
-
     </test>
-
 </suite>
