@@ -19,4 +19,5 @@ public class ConnectionConfigRequest {
     public String getPassword() { return password; }
     public boolean isRememberMe() { return rememberMe; }
     public String getDeviceId() { return deviceId; }
+
 }

@@ -1,5 +1,6 @@
 package com.postbackdaddy.api.services;
 
+import com.postbackdaddy.api.base.BaseSpecBuilder;
 import com.postbackdaddy.api.store.ConnectionConfigStore;
 import com.postbackdaddy.api.store.ConnectionRuntimeStore;
 import com.postbackdaddy.api.utils.ConfigReader;
@@ -7,6 +8,9 @@ import com.postbackdaddy.api.utils.TokenManager;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -71,6 +75,40 @@ public class ConnectionService {
 
             logger.info("Saved Connection -> ID: {}, Name: {}",
                     connectionId, connectionName);
+        }
+
+        return response;
+    }
+
+
+    public Response createSourceConnection(String tenantId) {
+
+        String sourceId = ConnectionConfigStore.getSourceId();
+
+        Map<String, Object> credentials = new HashMap<>();
+        credentials.put("api_key", "12345678");
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("name", "QA Source Auto");
+        body.put("configId", sourceId);
+        body.put("credentials", credentials);
+
+        Response response = given()
+                .spec(BaseSpecBuilder.getRequestSpec(ConfigReader.getBaseURI()))
+                .body(body)
+                .when()
+                .post("/v1/tenants/" + tenantId + "/connections")
+                .then()
+                .extract()
+                .response();
+
+        if (response.getStatusCode() == 201 &&
+                response.jsonPath().getBoolean("status")) {
+
+            String id = response.jsonPath().getString("data.id");
+            String name = response.jsonPath().getString("data.name");
+
+            ConnectionConfigStore.setSourceConnection(id, name);
         }
 
         return response;

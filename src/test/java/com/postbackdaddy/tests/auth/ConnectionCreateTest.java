@@ -43,4 +43,15 @@ public class ConnectionCreateTest extends BaseTest {
         System.out.println("Created Connection ID: " + connectionId);
         System.out.println("Created Connection Name: " + connectionName);
     }
+
+    @Test(priority = 4, dependsOnMethods = "testFetchSourceConfig")
+    public void createSourceConnectionTest() {
+
+        String tenantId = GetTenantList.getFirstTenantId();
+
+        ConnectionService service = new ConnectionService();
+        Response response = service.createSourceConnection(tenantId);
+
+       // Assert.assertEquals(response.getStatusCode(), 201);
+    }
 }

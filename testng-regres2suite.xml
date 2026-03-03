@@ -71,6 +71,7 @@
             <class name="com.postbackdaddy.tests.auth.ConnectionCreateTest">
                 <methods>
                     <include name="testCreateTargetConnection"/>
+                    <include name="createSourceConnectionTest"/>
                 </methods>
             </class>
         </classes>

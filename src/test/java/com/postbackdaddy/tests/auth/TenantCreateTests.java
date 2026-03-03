@@ -39,8 +39,8 @@ public class TenantCreateTests extends BaseTest {
 
         // ===== Create Request =====
         CreateTenantRequest tenantRequest = new CreateTenantRequest();
-        tenantRequest.setName("Org Dev");
-        tenantRequest.setEmail("test15+ccc@codeclouds.in");
+        tenantRequest.setName("Org Y");
+        tenantRequest.setEmail("test17+cc@codeclouds.in");
         tenantRequest.setCountry_code("+1");
         tenantRequest.setPhone_number("7884561236");
         tenantRequest.setStatus("ACTIVE");
@@ -108,8 +108,8 @@ public class TenantCreateTests extends BaseTest {
         String accessToken = TokenManager.getAuthToken();
 
         CreateTenantRequest tenantRequest = new CreateTenantRequest();
-        tenantRequest.setName("DuplicateTenant");
-        tenantRequest.setEmail("test12+cccc@codeclouds.in");  // Duplicate email
+        tenantRequest.setName("Org Y");
+        tenantRequest.setEmail("test09+cc@codeclouds.in");  // Duplicate email
         tenantRequest.setCountry_code("+1");
         tenantRequest.setPhone_number("9876543210");
         tenantRequest.setStatus("ACTIVE");
